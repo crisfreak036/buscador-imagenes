@@ -37,3 +37,10 @@ export function mostrarAlerta(mensaje, tipo, tiempo){
         }, tiempo);
     }
 }
+
+export function limpiarResultadosPrevios(){
+
+    while(contenedorResultado.firstChild){
+        contenedorResultado.removeChild(contenedorResultado.firstChild)
+    }
+}
