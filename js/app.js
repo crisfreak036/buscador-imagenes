@@ -1,6 +1,10 @@
 import * as UI from './interfaz.js';
 
-UI.formulario.addEventListener('submit', validadFormulario);
+window.onload = () => {
+    
+    // Al cargar la página, el submit queda disponible
+    UI.formulario.addEventListener('submit', validadFormulario);
+};
 
 function validadFormulario(e){
     e.preventDefault();
