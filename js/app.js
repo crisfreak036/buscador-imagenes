@@ -12,4 +12,21 @@ function validadFormulario(e){
     }
 
     // Consultar la API
+    buscaImagenes(termino);
+}
+
+function buscaImagenes(termino){
+
+    const key = '23957148-599aa7fca85d3a65cfb381d7c';
+    const url = `https://pixabay.com/api/?key=${key}&q=${termino}`;
+
+    fetch(url)
+        .then( respuesta => respuesta.json() )
+        .then( resultados => {
+            mostrarImagenes(resultados);
+        } )
+}
+
+function mostrarImagenes( resultados ){
+    console.log(resultados.hits);
 }
