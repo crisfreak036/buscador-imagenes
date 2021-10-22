@@ -1,3 +1,6 @@
+import * as func from './funciones.js';
+let iterador;
+
 // Selectores
 export  const formulario = document.querySelector('#formulario'),
             inputTermino = document.querySelector('#termino'),
@@ -38,16 +41,16 @@ export function mostrarAlerta(mensaje, tipo, tiempo){
     }
 }
 
-export function limpiarResultadosPrevios(){
+export function limpiarResultadosPrevios( elemento ){
 
-    while(contenedorResultado.firstChild){
-        contenedorResultado.removeChild(contenedorResultado.firstChild)
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.firstChild)
     }
 }
 
-export function mostrarImagenes( imagenes ){
+export function mostrarImagenes( imagenes, totalPaginas ){
     // Limpia los resultados anteriores
-    limpiarResultadosPrevios();
+    limpiarResultadosPrevios( contenedorResultado );
 
     // Itera sobre el arreglo con las imagenes y su información
     imagenes.forEach( imagen => {
