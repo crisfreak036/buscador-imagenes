@@ -71,4 +71,29 @@ export function mostrarImagenes( imagenes ){
             </div>
         `
     });
+    mostrarPaginador(totalPaginas);
+}
+
+function mostrarPaginador(totalPaginas) {
+    
+    // Limpiar la paginacion anterior
+    limpiarResultadosPrevios(paginacion);
+
+    iterador = func.crearPaginador(totalPaginas);
+
+    while(true){
+        // Destructuring del iterador.next()
+        const { value, done } = iterador.next();
+        if(done) return;
+
+
+        // Genera un botón por cada elemento en el generador
+        const boton = document.createElement('a');
+        boton.href = '#';
+        boton.dataset.pagina = value;
+        boton.textContent = value;
+        boton.classList.add('siguiente', 'bg-yellow-400', 'px-4', 'py-1', 'mr-2', 'font-bold', 'mb-4', 'uppercase', 'rounded');
+    
+        paginacion.appendChild(boton);
+    }
 }
