@@ -2,7 +2,7 @@
 // Generador que va a registrar la cantidad de elementos de acuerdo a las páginas
 export function *crearPaginador(totalPaginas){
     for(let i = 1; i <= totalPaginas; i++){
-        console.log(i);
+        yield i;
     }
 }
 
