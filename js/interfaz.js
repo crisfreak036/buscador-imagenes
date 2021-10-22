@@ -1,5 +1,5 @@
 import * as func from './funciones.js';
-let iterador;
+export let iterador, paginaActual = 1;
 
 // Selectores
 export  const formulario = document.querySelector('#formulario'),
@@ -95,8 +95,15 @@ function mostrarPaginador(totalPaginas) {
         boton.href = '#';
         boton.dataset.pagina = value;
         boton.textContent = value;
-        boton.classList.add('siguiente', 'bg-yellow-400', 'px-4', 'py-1', 'mr-2', 'font-bold', 'mb-4', 'uppercase', 'rounded');
-    
+        boton.classList.add('siguiente', 'bg-yellow-400', 'px-4', 'py-1', 'mr-2', 'font-bold', 'mb-4', 'rounded');
+
+        // Al hacer click vuelve a pedir a la API que entrega la nueva pagina con imagenes
+        boton.onclick = function(){
+            paginaActual = value;
+            func.buscaImagenes();
+        }
+        
+        // Añade el boton al DOM
         paginacion.appendChild(boton);
     }
 }
